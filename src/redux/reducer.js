@@ -1,16 +1,25 @@
-import { COUNTER_CHANGE } from './types';
+import { VIDEOS_LIST, SET_LOADING } from './types';
 const initialState = {
-    count: 0
+    list: []
 };
-const countReducer = (state = initialState, action) => {
+export const getVideosList = (state = initialState, action) => {
     switch (action.type) {
-        case COUNTER_CHANGE:
+        case VIDEOS_LIST:
             return {
                 ...state,
-                count: action.payload
+                list: action.payload
             };
         default:
             return state;
     }
 }
-export default countReducer;
+
+export const isLoading = (state = false, action) => {
+    switch (action.type) {
+        case SET_LOADING:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+export default getVideosList;

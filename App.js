@@ -4,12 +4,14 @@ import StackNavigator from "./src/navigation/stack";
 import { navigationRef, isReadyRef } from "./src/navigation/navigation";
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import configureStore from './src/redux/store';
+import store from './src/redux/store';
+import Loader from "./src/components/Loader";
+import { LogBox } from "react-native";
 
-const store = configureStore();
+// const store = configureStore();
 
 const App = () => {
-  console.disableYellowBox = true;
+  LogBox.ignoreAllLogs(true);
   React.useEffect(() => {
     return () => {
       isReadyRef.current = false

@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import styles from '../utility/Style';
 import Constants from '../utility/Constant';
-import SideIcon from '../assets/arrow.png';
+import SideIcon from '../assets/imgs/arrow.png';
 
 const Header = (props) => {
-  const {title, navigation} = props;
+  const { title, navigation } = props;
   return (
-    <View style={{width: '100%'}}>
+    <View style={{ width: '100%' }}>
       <StatusBar
         backgroundColor={Constants.color}
         barStyle="dark-content"></StatusBar>

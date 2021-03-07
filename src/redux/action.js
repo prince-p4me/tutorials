@@ -1,7 +1,15 @@
-import { COUNTER_CHANGE } from './types';
-export function changeCount(count) {
+import { GET_VIDEOS_LIST, SET_LOADING } from './types';
+
+export function getVideos(payload) {
     return {
-        type: COUNTER_CHANGE,
-        payload: count
+        type: GET_VIDEOS_LIST,
+        payload
     }
 }
+
+// export function setLoading(payload) {
+//     return {
+//         type: SET_LOADING,
+//         payload
+//     }
+// }

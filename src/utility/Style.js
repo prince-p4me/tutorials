@@ -2,22 +2,16 @@ import { View, StyleSheet, Dimensions } from "react-native";
 import Constants from "./Constant";
 
 export default StyleSheet.create({
-    list: {
-        width: "100%", height: 100,
-        borderBottomWidth: 1,
-        borderColor: "lightgray",
-        flexDirection: "row",
-        paddingHorizontal: 10,
-        paddingVertical: 10
-    },
-    listImage: {
-        width: 120, height: 80,
-        resizeMode: "cover"
-    },
-    listBtn: {
+    submit: {
         backgroundColor: Constants.color,
-        width: 120, height: 25, borderRadius: 12,
+        width: 100, height: 45, borderColor: "black",
+        borderTopWidth: 1,
         justifyContent: "center", alignItems: "center"
+    },
+    searchInput: {
+        height: 45, flex: 1,
+        borderWidth: 1, borderColor: "grey",
+        padding: 5
     },
     header: {
         height: 45, width: "100%",
@@ -39,7 +33,7 @@ export default StyleSheet.create({
         width: "100%",
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        // justifyContent: "center",
         // backgroundColor: "yellow"
     },
     container: {

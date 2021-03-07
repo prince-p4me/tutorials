@@ -10,8 +10,8 @@ import {
     Modal
 } from 'react-native';
 import Voice from '@react-native-community/voice';
-import mike from "../assets/microphone.png";
-import cancel from "../assets/cancel.png";
+import mike from "../assets/imgs/microphone.png";
+import cancel from "../assets/imgs/cancel.png";
 import Constants from "../utility/Constant";
 
 export default function SpeechText({ visible, submit, close }) {
