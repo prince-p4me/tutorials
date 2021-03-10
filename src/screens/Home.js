@@ -1,16 +1,26 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, FlatList, TextInput } from "react-native";
 import Header from "../components/Header";
 import Constant from "../utility/Constant";
 import styles from "../utility/Style";
 import { getVideos, setLoading } from "../redux/action";
 import { connect } from 'react-redux';
 import Loader from "../components/Loader";
+import * as Navigation from "../navigation/navigation";
 
 class HomeScreen extends React.Component {
     state = {
         search: ""
     }
+
+    renderItem = ({ item }) => (
+        <TouchableOpacity style={styles.item}
+            onPress={() =>
+                Navigation.navigate('Detail', { video: item.video })
+            }>
+            <Image style={styles.img} source={item.thumUrl} />
+        </TouchableOpacity>
+    );
 
     render() {
         const { search } = this.state;
@@ -28,6 +38,17 @@ class HomeScreen extends React.Component {
                             <Text style={{ color: "white", fontWeight: "bold" }}>SUBMIT</Text>
                         </TouchableOpacity>
                     </View>
+                    <FlatList
+                        data={list}
+                        contentContainerStyle={{ flexGrow: 1 }}
+                        renderItem={this.renderItem}
+                        keyExtractor={(item) => item.id}
+                        ListEmptyComponent={(
+                            <View style={styles.noData}>
+                                <Text style={{ color: "black", fontSize: 16 }}>OOPS! Videos not found</Text>
+                            </View>
+                        )}
+                    />
                 </View>
             </View>
         );

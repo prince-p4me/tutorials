@@ -10,9 +10,12 @@ import {
 import styles from '../utility/Style';
 import Constants from '../utility/Constant';
 import SideIcon from '../assets/imgs/arrow.png';
+import * as Navigation from "../navigation/navigation";
 
 const Header = (props) => {
-  const { title, navigation } = props;
+  const { title, back } = props;
+
+  console.log("back", back);
   return (
     <View style={{ width: '100%' }}>
       <StatusBar
@@ -20,11 +23,11 @@ const Header = (props) => {
         barStyle="dark-content"></StatusBar>
       <SafeAreaView style={styles.safeArea}></SafeAreaView>
       <View style={styles.header}>
-        {navigation && (
+        {back && (
           <TouchableOpacity
             style={styles.drawerButton}
             activeOpacity={0.7}
-            onPress={() => navigation.goBack()}>
+            onPress={() => Navigation.goBack()}>
             <Image source={SideIcon} style={styles.sideIcon}></Image>
           </TouchableOpacity>
         )}

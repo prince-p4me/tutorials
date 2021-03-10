@@ -1,7 +1,10 @@
 import { VIDEOS_LIST, SET_LOADING } from './types';
+import initlist from "../assets/json/list";
+
 const initialState = {
-    list: []
+    list: initlist
 };
+
 export const getVideosList = (state = initialState, action) => {
     switch (action.type) {
         case VIDEOS_LIST:

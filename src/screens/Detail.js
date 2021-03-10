@@ -1,16 +1,30 @@
-import React from "react";
-import { View, Text } from "react-native";
-import Header from "../components/Header";
-import styles from "../utility/Style";
-
-const Detail = ({ route, navigation }) => {
+import React from 'react';
+import { View, Text, Dimensions } from 'react-native';
+import Header from '../components/Header';
+import styles from '../utility/Style';
+import Video from 'react-native-video';
+const Detail = ({ route, navigation, props }) => {
+    const { width } = Dimensions.get('window');
+    const { height } = Dimensions.get('window');
     const { name } = route;
+    const onLoadStart = () => {
+        // alert('Start');
+    };
+
+    const onEnd = () => {
+        // alert('End');
+    };
     return (
         <View style={styles.container}>
-            <Header title={name} navigation={navigation} />
-            <View style={styles.center}>
-                <Text>This is the {name} screen</Text>
-            </View>
+            <Header title={route.name} back={true} />
+            <Video
+                // source={this.props.video}
+                resizeMode="cover"
+                style={{ width, height: height }}
+                controls={true}
+                onLoadStart={onLoadStart}
+                onEnd={onEnd}
+            />
         </View>
     );
 };
