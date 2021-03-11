@@ -9,10 +9,12 @@ function* getVideos({ type, payload }) {
         yield put({ type: SET_LOADING, payload: true });//show loading
 
         // filtering list
-        var modifyList = list.filter(obj => obj.title.includes(payload));
+        const list1 = list.filter((el) => {
+            return (payload.split(" ").filter(word => el.title.toLowerCase().includes(word.toLowerCase()))).length > 0;
+        });
 
         yield delay(4000);
-        yield put({ type: VIDEOS_LIST, payload: modifyList }); //show loading
+        yield put({ type: VIDEOS_LIST, payload: list1 }); //show loading
         yield put({ type: SET_LOADING, payload: false });//hide loading
     }
     catch (error) {

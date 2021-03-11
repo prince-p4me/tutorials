@@ -14,7 +14,7 @@ export default [
     {
         "thumUrl": require("../imgs/dog.jpg"),
         "video": require("../videos/dog.mp4"),
-        "title": "Dog's training best practices",
+        "title": "Dogs training best practices",
         "id": "3"
     }
 ]

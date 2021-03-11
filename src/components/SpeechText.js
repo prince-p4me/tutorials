@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { forwardRef, useRef, useImperativeHandle, useState, useEffect } from 'react';
+
 import {
     StyleSheet,
     Text,
@@ -14,7 +15,15 @@ import mike from "../assets/imgs/microphone.png";
 import cancel from "../assets/imgs/cancel.png";
 import Constants from "../utility/Constant";
 
-export default function SpeechText({ visible, submit, close }) {
+const Child = forwardRef((props, ref) => {
+
+    return (
+        <div>Child Component</div>
+    )
+})
+
+const SpeechText = forwardRef((props, ref) => {
+    const { visible, submit, close } = props;
     const [results, setResults] = useState([]);
     const [started, setStarted] = useState(false);
     const [partialResults, setPartialResults] = useState([]);
@@ -22,7 +31,18 @@ export default function SpeechText({ visible, submit, close }) {
     const [error, setError] = useState('');
     const [end, setEnd] = useState('');
 
+    useImperativeHandle(
+        ref,
+        () => ({
+            start() {
+                _startRecognizing();
+                // alert("Child function called")
+            }
+        }),
+    )
+
     useEffect(() => {
+
         function onSpeechStart(e) {
             console.log('onSpeechStart: ', e);
             setStarted(true)
@@ -186,7 +206,9 @@ export default function SpeechText({ visible, submit, close }) {
             </SafeAreaView>
         </Modal>
     )
-}
+});
+
+export default SpeechText;
 
 const styles = StyleSheet.create({
     button: {

@@ -2,6 +2,15 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import Constants from './Constant';
 
 export default StyleSheet.create({
+    mikeButton: {
+        width: 60, height: 60,
+        position: "absolute",
+        bottom: 35, right: 20,
+        backgroundColor: Constants.color,
+        borderRadius: 30,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     item: {
         // flexDirection: 'row',
         height: 200,
