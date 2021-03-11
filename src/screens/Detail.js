@@ -3,7 +3,8 @@ import { View, Text, Dimensions } from 'react-native';
 import Header from '../components/Header';
 import styles from '../utility/Style';
 import Video from 'react-native-video';
-const Detail = ({ route, navigation, props }) => {
+import * as Navigation from '../navigation/navigation';
+const Detail = ({ route }) => {
     const { width } = Dimensions.get('window');
     const { height } = Dimensions.get('window');
     const { name } = route;
@@ -13,17 +14,20 @@ const Detail = ({ route, navigation, props }) => {
 
     const onEnd = () => {
         // alert('End');
+        Navigation.goBack();
     };
+
     return (
         <View style={styles.container}>
-            <Header title={route.name} back={true} />
+            <Header title={route.params.name} back={true} />
             <Video
-                // source={this.props.video}
+                source={route.params.video}
                 resizeMode="cover"
-                style={{ width, height: height }}
+                style={{ width, height, backgroundColor: "black" }}
                 controls={true}
                 onLoadStart={onLoadStart}
                 onEnd={onEnd}
+                resizeMode="contain"
             />
         </View>
     );

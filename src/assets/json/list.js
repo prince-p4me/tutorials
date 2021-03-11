@@ -1,20 +1,20 @@
 export default [
     {
         "thumUrl": require("../imgs/cats.jpg"),
-        "videos": require("../videos/cat.mp4"),
-        "name": "cats",
+        "video": require("../videos/cat.mp4"),
+        "title": "Cat training in just 5 steps",
         "id": "1"
     },
     {
         "thumUrl": require("../imgs/cats-2.jpg"),
-        "videos": require("../videos/cat.mp4"),
-        "name": "cats",
+        "video": require("../videos/cat.mp4"),
+        "title": "Cats training for beginers",
         "id": "2"
     },
     {
         "thumUrl": require("../imgs/dog.jpg"),
-        "videos": require("../videos/dog.mp4"),
-        "name": "dogs",
+        "video": require("../videos/dog.mp4"),
+        "title": "Dog's training best practices",
         "id": "3"
     }
 ]

@@ -16,7 +16,7 @@ class HomeScreen extends React.Component {
     renderItem = ({ item }) => (
         <TouchableOpacity style={styles.item}
             onPress={() =>
-                Navigation.navigate('Detail', { video: item.video })
+                Navigation.navigate('Detail', { video: item.video, name: item.title })
             }>
             <Image style={styles.img} source={item.thumUrl} />
         </TouchableOpacity>

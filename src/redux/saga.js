@@ -9,12 +9,7 @@ function* getVideos({ type, payload }) {
         yield put({ type: SET_LOADING, payload: true });//show loading
 
         // filtering list
-        var modifyList = list.filter((el) => {
-            console.log(el.name + '===' + payload);
-            console.log('22=' + el.name.indexOf(payload));
-            return el.name.indexOf(payload) >= 0;
-        });
-        console.log({ modifyList: modifyList });
+        var modifyList = list.filter(obj => obj.title.includes(payload));
 
         yield delay(4000);
         yield put({ type: VIDEOS_LIST, payload: modifyList }); //show loading
