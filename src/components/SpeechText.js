@@ -7,20 +7,13 @@ import {
     SafeAreaView,
     Image,
     TouchableHighlight,
-    ScrollView,
-    Modal
+    ScrollView, PermissionStatus,
+    Modal, PermissionsAndroid
 } from 'react-native';
 import Voice from '@react-native-community/voice';
 import mike from "../assets/imgs/microphone.png";
 import cancel from "../assets/imgs/cancel.png";
 import Constants from "../utility/Constant";
-
-const Child = forwardRef((props, ref) => {
-
-    return (
-        <div>Child Component</div>
-    )
-})
 
 const SpeechText = forwardRef((props, ref) => {
     const { visible, submit, close } = props;
@@ -36,7 +29,6 @@ const SpeechText = forwardRef((props, ref) => {
         () => ({
             start() {
                 _startRecognizing();
-                // alert("Child function called")
             }
         }),
     )
@@ -199,7 +191,7 @@ const SpeechText = forwardRef((props, ref) => {
                             }
                         }}
                             style={{ flex: 1, backgroundColor: Constants.color }}>
-                            <Text style={styles.action}>Submit</Text>
+                            <Text style={styles.action}>SEARCH</Text>
                         </TouchableHighlight>
                     </View>
                 </View>

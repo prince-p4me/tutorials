@@ -33,8 +33,9 @@ const HomeScreen = () => {
                 close={() => setSpeechModal(false)}
                 submit={res => {
                     setSpeechModal(false);
-                    if (res) {
-                        dispatch(getVideos(res))
+                    if (res && res[0] && res[0].length) {
+                        setSearch(res[0]);
+                        dispatch(getVideos(res[0]))
                     }
                 }}
                 ref={childRef} />
@@ -50,7 +51,7 @@ const HomeScreen = () => {
                                 dispatch(getVideos(search));
                             }
                         }}>
-                        <Text style={{ color: "white", fontWeight: "bold" }}>SUBMIT</Text>
+                        <Text style={{ color: "white", fontWeight: "bold" }}>SEARCH</Text>
                     </TouchableOpacity>
                 </View>
                 <FlatList
